@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview --port 8018",
+    "preview": "vite preview --host 0.0.0.0 --port 8018",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
