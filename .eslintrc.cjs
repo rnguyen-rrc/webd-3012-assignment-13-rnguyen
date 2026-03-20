@@ -1,5 +1,3 @@
-const { rules } = require('eslint-plugin-react-hooks');
-
 module.exports = {
   root: true,
   env: {
