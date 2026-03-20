@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import type { ImgProps } from './Img.types'
+import styled from 'styled-components';
+import type { ImgProps } from './Img.types';
 
 const StyledWrapper = styled.div<{
-  $backgroundColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $disabled?: boolean;
 }>`
   display: inline-block;
   padding: 4px;
@@ -17,17 +17,17 @@ const StyledWrapper = styled.div<{
   @media (max-width: 600px) {
     width: 100%;
   }
-`
+`;
 
 const StyledImg = styled.img<{
-  $width?: string
-  $height?: string
+  $width?: string;
+  $height?: string;
 }>`
   display: block;
   width: ${({ $width }) => $width || '100%'};
   height: ${({ $height }) => $height || 'auto'};
   border-radius: 6px;
-`
+`;
 
 const Img = ({
   src,
@@ -43,14 +43,9 @@ const Img = ({
       $disabled={disabled}
       aria-disabled={disabled}
     >
-      <StyledImg
-        src={src}
-        alt={alt}
-        $width={width}
-        $height={height}
-      />
+      <StyledImg src={src} alt={alt} $width={width} $height={height} />
     </StyledWrapper>
-  )
-}
+  );
+};
 
-export default Img
+export default Img;

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Button from './Button'
+import type { Meta, StoryObj } from '@storybook/react';
+import Button from './Button';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -11,11 +11,11 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Button>
+type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
@@ -23,7 +23,7 @@ export const Default: Story = {
     backgroundColor: '#007bff',
     disabled: false,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
@@ -31,4 +31,4 @@ export const Disabled: Story = {
     backgroundColor: '#007bff',
     disabled: true,
   },
-}
+};

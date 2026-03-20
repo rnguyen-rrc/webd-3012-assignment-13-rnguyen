@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import Button from './components/Button'
-import Label from './components/Label'
-import Text from './components/Text'
-import Dropdown from './components/Dropdown'
-import RadioButton from './components/RadioButton'
-import Img from './components/Img'
-import HeroImage from './components/HeroImage'
-import Card from './components/Card'
+import { useState } from 'react';
+import Button from './components/Button';
+import Label from './components/Label';
+import Text from './components/Text';
+import Dropdown from './components/Dropdown';
+import RadioButton from './components/RadioButton';
+import Img from './components/Img';
+import HeroImage from './components/HeroImage';
+import Card from './components/Card';
 import {
   Table,
   TableHeader,
@@ -14,10 +14,10 @@ import {
   TableCell,
   TableHeaderCell,
   TableFooter,
-} from './components/Table'
+} from './components/Table';
 
 function App() {
-  const [selected, setSelected] = useState('1')
+  const [selected, setSelected] = useState('1');
 
   return (
     <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
@@ -27,7 +27,8 @@ function App() {
       <section>
         <h2>Button</h2>
         <Button label="Primary Button" />
-        <br /><br />
+        <br />
+        <br />
         <Button label="Disabled Button" disabled />
       </section>
 
@@ -37,7 +38,8 @@ function App() {
       <section>
         <h2>Label</h2>
         <Label text="Default Label" />
-        <br /><br />
+        <br />
+        <br />
         <Label text="Disabled Label" disabled />
       </section>
 
@@ -47,7 +49,8 @@ function App() {
       <section>
         <h2>Text</h2>
         <Text text="This is default text." />
-        <br /><br />
+        <br />
+        <br />
         <Text text="This text is disabled." disabled />
       </section>
 
@@ -62,7 +65,8 @@ function App() {
             { label: 'Option 2', value: '2' },
           ]}
         />
-        <br /><br />
+        <br />
+        <br />
         <Dropdown
           options={[
             { label: 'Disabled 1', value: '1' },
@@ -138,7 +142,8 @@ function App() {
           subtitle="Hero subtitle example"
           backgroundColor="rgba(0, 0, 0, 0.4)"
         />
-        <br /><br />
+        <br />
+        <br />
         <HeroImage
           imageUrl="https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/1600x1066/gallery-1506709524-cola-0247.jpg?resize=1800:*"
           title="Disabled Hero"
@@ -152,16 +157,10 @@ function App() {
       {/* Card */}
       <section>
         <h2>Card</h2>
-        <Card
-          title="Card Title"
-          content="This is a card example."
-        />
-        <br /><br />
-        <Card
-          title="Disabled Card"
-          content="This card is disabled."
-          disabled
-        />
+        <Card title="Card Title" content="This is a card example." />
+        <br />
+        <br />
+        <Card title="Disabled Card" content="This card is disabled." disabled />
       </section>
 
       <hr />
@@ -172,47 +171,47 @@ function App() {
         <Table>
           <TableHeader>
             <TableRow>
-                <TableHeaderCell>Name</TableHeaderCell>
-                <TableHeaderCell>Age</TableHeaderCell>
-                <TableHeaderCell>Address</TableHeaderCell>
-                <TableHeaderCell>Email</TableHeaderCell>
-                <TableHeaderCell>Phone</TableHeaderCell>
+              <TableHeaderCell>Name</TableHeaderCell>
+              <TableHeaderCell>Age</TableHeaderCell>
+              <TableHeaderCell>Address</TableHeaderCell>
+              <TableHeaderCell>Email</TableHeaderCell>
+              <TableHeaderCell>Phone</TableHeaderCell>
             </TableRow>
-        </TableHeader>
+          </TableHeader>
 
-        <tbody>
-          <TableRow>
-            <TableCell>John</TableCell>
-            <TableCell>25</TableCell>
-            <TableCell>123 Main St</TableCell>
-            <TableCell>john@email.com</TableCell>
-            <TableCell>204-000-0000</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Jane</TableCell>
-            <TableCell>30</TableCell>
-            <TableCell>456 Portage Ave</TableCell>
-            <TableCell>jane@email.com</TableCell>
-            <TableCell>204-000-0101</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Smith</TableCell>
-            <TableCell>45</TableCell>
-            <TableCell>789 Happy Ave</TableCell>
-            <TableCell>smith@email.com</TableCell>
-            <TableCell>204-000-1111</TableCell>
-          </TableRow>
-        </tbody>
+          <tbody>
+            <TableRow>
+              <TableCell>John</TableCell>
+              <TableCell>25</TableCell>
+              <TableCell>123 Main St</TableCell>
+              <TableCell>john@email.com</TableCell>
+              <TableCell>204-000-0000</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Jane</TableCell>
+              <TableCell>30</TableCell>
+              <TableCell>456 Portage Ave</TableCell>
+              <TableCell>jane@email.com</TableCell>
+              <TableCell>204-000-0101</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Smith</TableCell>
+              <TableCell>45</TableCell>
+              <TableCell>789 Happy Ave</TableCell>
+              <TableCell>smith@email.com</TableCell>
+              <TableCell>204-000-1111</TableCell>
+            </TableRow>
+          </tbody>
 
-        <TableFooter>
-          <TableRow>
-            <TableCell>Total Rows</TableCell>
-            <TableCell>3</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>           
-          </TableRow>
-        </TableFooter>
+          <TableFooter>
+            <TableRow>
+              <TableCell>Total Rows</TableCell>
+              <TableCell>3</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </section>
 
@@ -224,51 +223,51 @@ function App() {
         <Table disabled>
           <TableHeader>
             <TableRow>
-                <TableHeaderCell>Name</TableHeaderCell>
-                <TableHeaderCell>Age</TableHeaderCell>
-                <TableHeaderCell>Address</TableHeaderCell>
-                <TableHeaderCell>Email</TableHeaderCell>
-                <TableHeaderCell>Phone</TableHeaderCell>
+              <TableHeaderCell>Name</TableHeaderCell>
+              <TableHeaderCell>Age</TableHeaderCell>
+              <TableHeaderCell>Address</TableHeaderCell>
+              <TableHeaderCell>Email</TableHeaderCell>
+              <TableHeaderCell>Phone</TableHeaderCell>
             </TableRow>
-        </TableHeader>
+          </TableHeader>
 
-        <tbody>
-          <TableRow>
-            <TableCell>John</TableCell>
-            <TableCell>25</TableCell>
-            <TableCell>123 Main St</TableCell>
-            <TableCell>john@email.com</TableCell>
-            <TableCell>204-000-0000</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Jane</TableCell>
-            <TableCell>30</TableCell>
-            <TableCell>456 Portage Ave</TableCell>
-            <TableCell>jane@email.com</TableCell>
-            <TableCell>204-000-0101</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Smith</TableCell>
-            <TableCell>45</TableCell>
-            <TableCell>789 Happy Ave</TableCell>
-            <TableCell>smith@email.com</TableCell>
-            <TableCell>204-000-1111</TableCell>
-          </TableRow>
-        </tbody>
+          <tbody>
+            <TableRow>
+              <TableCell>John</TableCell>
+              <TableCell>25</TableCell>
+              <TableCell>123 Main St</TableCell>
+              <TableCell>john@email.com</TableCell>
+              <TableCell>204-000-0000</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Jane</TableCell>
+              <TableCell>30</TableCell>
+              <TableCell>456 Portage Ave</TableCell>
+              <TableCell>jane@email.com</TableCell>
+              <TableCell>204-000-0101</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Smith</TableCell>
+              <TableCell>45</TableCell>
+              <TableCell>789 Happy Ave</TableCell>
+              <TableCell>smith@email.com</TableCell>
+              <TableCell>204-000-1111</TableCell>
+            </TableRow>
+          </tbody>
 
-        <TableFooter>
-          <TableRow>
-            <TableCell>Total Rows</TableCell>
-            <TableCell>3</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>           
-          </TableRow>
-        </TableFooter>
+          <TableFooter>
+            <TableRow>
+              <TableCell>Total Rows</TableCell>
+              <TableCell>3</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </section>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

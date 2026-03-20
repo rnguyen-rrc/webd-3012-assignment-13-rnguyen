@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import type { CardProps } from './Card.types'
+import styled from 'styled-components';
+import type { CardProps } from './Card.types';
 
 const StyledCard = styled.div<{
-  $backgroundColor?: string
-  $textColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $textColor?: string;
+  $disabled?: boolean;
 }>`
   padding: 35px 60px 35px 60px;
   border-radius: 8px;
@@ -20,15 +20,15 @@ const StyledCard = styled.div<{
   opacity: ${({ $disabled }) => ($disabled ? 0.6 : 1)};
 
   transition: all 0.2s ease-in-out;
-`
+`;
 
 const Title = styled.h3`
   margin: 0 0 10px 0;
-`
+`;
 
 const Content = styled.p`
   margin: 0;
-`
+`;
 
 const Card = ({
   title,
@@ -47,7 +47,7 @@ const Card = ({
       <Title>{title}</Title>
       <Content>{content}</Content>
     </StyledCard>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

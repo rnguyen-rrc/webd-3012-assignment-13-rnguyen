@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Text from './Text'
+import type { Meta, StoryObj } from '@storybook/react';
+import Text from './Text';
 
 const meta: Meta<typeof Text> = {
   title: 'Components/Text',
@@ -30,11 +30,11 @@ const meta: Meta<typeof Text> = {
       description: 'Disabled state',
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Text>
+type Story = StoryObj<typeof Text>;
 
 export const Default: Story = {
   args: {
@@ -43,11 +43,11 @@ export const Default: Story = {
     fontSize: '16px',
     disabled: false,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
     text: 'This text is disabled',
     disabled: true,
   },
-}
+};

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import type { ButtonProps } from './Button.types'
+import styled from 'styled-components';
+import type { ButtonProps } from './Button.types';
 
 const StyledButton = styled.button<{
-  $backgroundColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $disabled?: boolean;
 }>`
   padding: 10px 20px;
   border: none;
@@ -22,7 +22,7 @@ const StyledButton = styled.button<{
   @media (max-width: 600px) {
     width: 100%;
   }
-`
+`;
 
 const Button = ({
   label,
@@ -39,7 +39,7 @@ const Button = ({
     >
       {label}
     </StyledButton>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

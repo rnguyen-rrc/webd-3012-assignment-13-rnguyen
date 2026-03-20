@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react'
-import { describe, test, expect } from 'vitest'
-import { Table, TableRow, TableCell } from './index'
+import { render, screen } from '@testing-library/react';
+import { describe, test, expect } from 'vitest';
+import { Table, TableRow, TableCell } from './index';
 
 describe('Table Component', () => {
   test('renders table content', () => {
@@ -11,12 +11,12 @@ describe('Table Component', () => {
             <TableCell>Test Cell</TableCell>
           </TableRow>
         </tbody>
-      </Table>
-    )
+      </Table>,
+    );
 
-    const cell = screen.getByText('Test Cell')
-    expect(cell).toBeInTheDocument()
-  })
+    const cell = screen.getByText('Test Cell');
+    expect(cell).toBeInTheDocument();
+  });
 
   test('changes background color when disabled', () => {
     render(
@@ -26,10 +26,10 @@ describe('Table Component', () => {
             <TableCell>Disabled Cell</TableCell>
           </TableRow>
         </tbody>
-      </Table>
-    )
+      </Table>,
+    );
 
-    const table = screen.getByTestId('table-wrapper')
-    expect(table).toHaveStyle('background-color: #ccc')
-  })
-})
+    const table = screen.getByTestId('table-wrapper');
+    expect(table).toHaveStyle('background-color: #ccc');
+  });
+});

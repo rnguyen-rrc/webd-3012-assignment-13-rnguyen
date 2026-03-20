@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import type { HeroImageProps } from './HeroImage.types'
+import styled from 'styled-components';
+import type { HeroImageProps } from './HeroImage.types';
 
 const StyledHero = styled.div<{
-  $imageUrl: string
-  $disabled?: boolean
-  $height?: string
+  $imageUrl: string;
+  $disabled?: boolean;
+  $height?: string;
 }>`
   position: relative;
   width: 100%;
@@ -18,11 +18,11 @@ const StyledHero = styled.div<{
   overflow: hidden;
 
   opacity: ${({ $disabled }) => ($disabled ? 0.7 : 1)};
-`
+`;
 
 const Overlay = styled.div<{
-  $backgroundColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $disabled?: boolean;
 }>`
   position: absolute;
   inset: 0;
@@ -31,7 +31,7 @@ const Overlay = styled.div<{
     $disabled
       ? 'rgba(200, 200, 200, 0.6)'
       : $backgroundColor || 'rgba(0, 0, 0, 0.4)'};
-`
+`;
 
 const Content = styled.div`
   position: absolute;
@@ -45,16 +45,16 @@ const Content = styled.div`
   text-align: center;
   color: white;
   padding: 20px;
-`
+`;
 
 const Title = styled.h1`
   margin: 0 0 10px 0;
-`
+`;
 
 const Subtitle = styled.p`
   margin: 0;
   font-size: 18px;
-`
+`;
 
 const HeroImage = ({
   imageUrl,
@@ -71,16 +71,13 @@ const HeroImage = ({
       $height={height}
       $disabled={disabled}
     >
-      <Overlay
-        $backgroundColor={backgroundColor}
-        $disabled={disabled}
-      />
+      <Overlay $backgroundColor={backgroundColor} $disabled={disabled} />
       <Content>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
       </Content>
     </StyledHero>
-  )
-}
+  );
+};
 
-export default HeroImage
+export default HeroImage;

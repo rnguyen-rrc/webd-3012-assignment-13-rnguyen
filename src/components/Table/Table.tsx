@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import type { TableProps } from './Table.types'
+import styled from 'styled-components';
+import type { TableProps } from './Table.types';
 
 const StyledTable = styled.table<{
-  $backgroundColor?: string
-  $textColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $textColor?: string;
+  $disabled?: boolean;
 }>`
   width: 100%;
   border-collapse: collapse;
@@ -22,7 +22,7 @@ const StyledTable = styled.table<{
   @media (max-width: 600px) {
     font-size: 14px;
   }
-`
+`;
 
 const Table = ({
   children,
@@ -39,7 +39,7 @@ const Table = ({
     >
       {children}
     </StyledTable>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;

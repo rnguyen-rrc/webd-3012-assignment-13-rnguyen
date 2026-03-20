@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   Table,
   TableHeader,
@@ -6,7 +6,7 @@ import {
   TableCell,
   TableFooter,
   TableHeaderCell,
-} from './index'
+} from './index';
 
 const meta = {
   title: 'Components/Table',
@@ -16,15 +16,15 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-  backgroundColor: { control: 'color' },
-  textColor: { control: 'color' },
-  disabled: { control: 'boolean' },
-},
-} satisfies Meta<typeof Table>
+    backgroundColor: { control: 'color' },
+    textColor: { control: 'color' },
+    disabled: { control: 'boolean' },
+  },
+} satisfies Meta<typeof Table>;
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -34,13 +34,13 @@ export const Default: Story = {
     children: (
       <>
         <TableHeader>
-            <TableRow>
-                <TableHeaderCell>Name</TableHeaderCell>
-                <TableHeaderCell>Age</TableHeaderCell>
-                <TableHeaderCell>Address</TableHeaderCell>
-                <TableHeaderCell>Email</TableHeaderCell>
-                <TableHeaderCell>Phone</TableHeaderCell>
-            </TableRow>
+          <TableRow>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Age</TableHeaderCell>
+            <TableHeaderCell>Address</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+          </TableRow>
         </TableHeader>
 
         <tbody>
@@ -73,17 +73,17 @@ export const Default: Story = {
             <TableCell>3</TableCell>
             <TableCell></TableCell>
             <TableCell></TableCell>
-            <TableCell></TableCell>           
+            <TableCell></TableCell>
           </TableRow>
         </TableFooter>
       </>
     ),
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
     disabled: true,
     children: Default.args?.children,
   },
-}
+};

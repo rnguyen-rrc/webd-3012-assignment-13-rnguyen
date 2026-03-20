@@ -1,11 +1,11 @@
-import styled from 'styled-components'
-import type { LabelProps } from './Label.types'
+import styled from 'styled-components';
+import type { LabelProps } from './Label.types';
 
 const StyledLabel = styled.label<{
-  $backgroundColor?: string
-  $color?: string
-  $fontSize?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $color?: string;
+  $fontSize?: string;
+  $disabled?: boolean;
 }>`
   padding: 10px 20px;
   border-radius: 6px;
@@ -16,15 +16,14 @@ const StyledLabel = styled.label<{
   background-color: ${({ $backgroundColor, $disabled }) =>
     $disabled ? '#ccc' : $backgroundColor || 'transparent'};
 
-  color: ${({ $color, $disabled }) =>
-    $disabled ? '#666' : $color || '#000'};
+  color: ${({ $color, $disabled }) => ($disabled ? '#666' : $color || '#000')};
 
   transition: all 0.2s ease-in-out;
 
   @media (max-width: 600px) {
     width: 100%;
   }
-`
+`;
 
 const Label = ({
   text,
@@ -45,7 +44,7 @@ const Label = ({
     >
       {text}
     </StyledLabel>
-  )
-}
+  );
+};
 
-export default Label
+export default Label;

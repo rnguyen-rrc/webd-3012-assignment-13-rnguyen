@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Img from './Img'
+import type { Meta, StoryObj } from '@storybook/react';
+import Img from './Img';
 
 const meta: Meta<typeof Img> = {
   title: 'Components/Img',
@@ -14,11 +14,11 @@ const meta: Meta<typeof Img> = {
     width: { control: 'text' },
     height: { control: 'text' },
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof Img>
+type Story = StoryObj<typeof Img>;
 
 export const Default: Story = {
   args: {
@@ -27,7 +27,7 @@ export const Default: Story = {
     width: '150px',
     disabled: false,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
@@ -36,4 +36,4 @@ export const Disabled: Story = {
     width: '150px',
     disabled: true,
   },
-}
+};

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import type { DropdownProps } from './Dropdown.types'
+import styled from 'styled-components';
+import type { DropdownProps } from './Dropdown.types';
 
 const StyledSelect = styled.select<{
-  $backgroundColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $disabled?: boolean;
 }>`
   padding: 10px 20px;
   border-radius: 6px;
@@ -24,7 +24,7 @@ const StyledSelect = styled.select<{
   @media (max-width: 600px) {
     width: 100%;
   }
-`
+`;
 
 const Dropdown = ({
   options,
@@ -48,7 +48,7 @@ const Dropdown = ({
         </option>
       ))}
     </StyledSelect>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

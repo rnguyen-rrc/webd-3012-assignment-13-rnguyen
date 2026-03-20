@@ -1,11 +1,11 @@
-import styled from 'styled-components'
-import type { TextProps } from './Text.types'
+import styled from 'styled-components';
+import type { TextProps } from './Text.types';
 
 const StyledText = styled.p<{
-  $backgroundColor?: string
-  $color?: string
-  $fontSize?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $color?: string;
+  $fontSize?: string;
+  $disabled?: boolean;
 }>`
   margin: 0;
 
@@ -14,15 +14,14 @@ const StyledText = styled.p<{
   background-color: ${({ $backgroundColor, $disabled }) =>
     $disabled ? '#ccc' : $backgroundColor || 'transparent'};
 
-  color: ${({ $color, $disabled }) =>
-    $disabled ? '#666' : $color || '#000'};
+  color: ${({ $color, $disabled }) => ($disabled ? '#666' : $color || '#000')};
 
   opacity: ${({ $disabled }) => ($disabled ? 0.6 : 1)};
 
   @media (max-width: 600px) {
     font-size: 14px;
   }
-`
+`;
 
 const Text = ({
   text,
@@ -41,7 +40,7 @@ const Text = ({
     >
       {text}
     </StyledText>
-  )
-}
+  );
+};
 
-export default Text
+export default Text;

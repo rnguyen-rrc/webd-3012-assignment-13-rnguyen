@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import RadioButton from './RadioButton'
+import type { Meta, StoryObj } from '@storybook/react';
+import RadioButton from './RadioButton';
 
 const meta: Meta<typeof RadioButton> = {
   title: 'Components/RadioButton',
@@ -16,11 +16,11 @@ const meta: Meta<typeof RadioButton> = {
     disabled: { control: 'boolean' },
     backgroundColor: { control: 'color' },
   },
-}
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof RadioButton>
+type Story = StoryObj<typeof RadioButton>;
 
 export const Default: Story = {
   args: {
@@ -30,7 +30,7 @@ export const Default: Story = {
     checked: false,
     disabled: false,
   },
-}
+};
 
 export const Disabled: Story = {
   args: {
@@ -40,4 +40,4 @@ export const Disabled: Story = {
     checked: false,
     disabled: true,
   },
-}
+};

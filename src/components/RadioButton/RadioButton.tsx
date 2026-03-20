@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import type { RadioButtonProps } from './RadioButton.types'
+import styled from 'styled-components';
+import type { RadioButtonProps } from './RadioButton.types';
 
 const StyledWrapper = styled.label<{
-  $backgroundColor?: string
-  $disabled?: boolean
+  $backgroundColor?: string;
+  $disabled?: boolean;
 }>`
   display: inline-flex;
   align-items: center;
@@ -24,11 +24,11 @@ const StyledWrapper = styled.label<{
   @media (max-width: 600px) {
     width: 100%;
   }
-`
+`;
 
 const StyledInput = styled.input`
   cursor: inherit;
-`
+`;
 
 const RadioButton = ({
   label,
@@ -55,7 +55,7 @@ const RadioButton = ({
       />
       {label}
     </StyledWrapper>
-  )
-}
+  );
+};
 
-export default RadioButton
+export default RadioButton;
