@@ -1,6 +1,6 @@
-# WEBD-3012_Assignment-12_rnguyen
+# WEBD-3012_Assignment-13_rnguyen
 
-**Description**: Develop a reusable UI Component Library using React, styled-components, and Storybook. The library includes interactive components with configurable props, responsive design, unit testing using Vitest, and a Dockerized production build deployment.
+**Description**: Add code quality check to the existing code building process.
 
 ### 1. Create Vite project
 
