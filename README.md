@@ -45,6 +45,7 @@ git push -u origin main
 ```
 
 ### 3. Installed Required Tools (Prettier, ESLint version 8)
+
 ```
 npm install -D prettier eslint@8 husky lint-staged @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-config-prettier
 ```
@@ -52,6 +53,7 @@ npm install -D prettier eslint@8 husky lint-staged @typescript-eslint/parser @ty
 a. Update **package.json**.
 
 Ensure the script includes
+
 ```
  "scripts": {
     "dev": "vite",
@@ -70,6 +72,7 @@ Ensure the script includes
 b. **Set Up Prettier**
 
 Create .prettierrc
+
 ```
 {
   "semi": true,
@@ -77,7 +80,9 @@ Create .prettierrc
   "trailingComma": "all"
 }
 ```
+
 Create .prettierignore
+
 ```
 node_modules
 dist
@@ -88,6 +93,7 @@ storybook-static
 c. **Set Up ESLint**
 
 Create .eslintrc.cjs
+
 ```
 module.exports = {
   root: true,
@@ -121,24 +127,30 @@ module.exports = {
 };
 
 ```
+
 d. **Set Up Husky (Pre-commit Hook)**
 
 Initialize Husky
+
 ```
 npx husky init
 ```
 
 Edit .husky/pre-commit
+
 ```
 npm run format:check
 npm run lint
 npm test
 ```
+
 e. **Verify Setup**
+
 ```
 git add .
 git commit -m "test pipeline"
 ```
+
 **Expected behavior:**
 
 Prettier runs.
@@ -150,9 +162,11 @@ Tests run
 Commit fails if any step fails
 
 ### 4. Set up GitHub Actions
+
 **Step 1**
 
 Create this file: /.github/workflows/ci.yml
+
 ```
 name: CI
 
@@ -191,14 +205,17 @@ jobs:
       - name: Build app
         run: npm run build
 ```
+
 **Step 2**
 
 Commit and push it
+
 ```
 git add .github/workflows/ci.yml
 git commit -m "Add GitHub Actions CI workflow"
 git push
 ```
+
 **Step 3**
 
 Open GitHub repo -> Actions tab -> confirm the workflow passes.
@@ -206,6 +223,7 @@ Open GitHub repo -> Actions tab -> confirm the workflow passes.
 That gives you a solid CI pipeline: every push and pull request will lint, test, and build the app automatically.
 
 ### 5. Create a Dockerfile for localhost:8018
+
 a. **Create Dockerfile**
 
 From project root, create a new file '**Dockerfile**' (no file extension) in the app root folder
