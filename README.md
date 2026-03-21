@@ -1,3 +1,5 @@
+This line has bad spacing
+
 # WEBD-3012_Assignment-13_rnguyen
 
 **Description**: Add code quality check to the existing code building process.
