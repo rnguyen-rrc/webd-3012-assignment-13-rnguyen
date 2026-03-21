@@ -285,7 +285,7 @@ d. **Confirm the app runs successfully using Docker**
 Go to browser, type the following URL to verify that the app can be run
 
 ```
-http://localhost:8081/
+http://localhost:8018/
 ```
 
 e. **Commit and push changes to Git**
