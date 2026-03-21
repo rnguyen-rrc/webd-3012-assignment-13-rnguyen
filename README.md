@@ -44,8 +44,110 @@ e. Push your changes to GitHub using command
 git push -u origin main
 ```
 
-### 3. 
+### 3. Installed Required Tools (Prettier, ESLint version 8)
 ```
+npm install -D prettier eslint@8 husky lint-staged @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react eslint-config-prettier
+```
+
+a. Update **package.json**.
+
+Ensure the script includes
+```
+ "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 8018",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "vitest run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepare": "husky"
+  },
+```
+
+b. **Set Up Prettier**
+
+Create .prettierrc
+```
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all"
+}
+```
+Create .prettierignore
+```
+node_modules
+dist
+coverage
+storybook-static
+```
+
+c. **Set Up ESLint**
+
+Create .eslintrc.cjs
+```
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['react', '@typescript-eslint'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  rules: {
+    'react/react-in-jsx-scope': 'off',
+    'react/no-unescaped-entities': 'off',
+  },
+  ignorePatterns: ['dist', 'node_modules'],
+};
+
+```
+d. **Set Up Husky (Pre-commit Hook)**
+
+Initialize Husky
+```
+npx husky init
+```
+
+Edit .husky/pre-commit
+```
+npm run format:check
+npm run lint
+npm test
+```
+e. **Verify Setup**
+```
+git add .
+git commit -m "test pipeline"
+```
+**Expected behavior:**
+
+Prettier runs
+
+ESLint runs
+
+Tests run
+
+Commit fails if any step fails
 
 c. **Create Dockerfile**
 
