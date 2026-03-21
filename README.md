@@ -141,15 +141,72 @@ git commit -m "test pipeline"
 ```
 **Expected behavior:**
 
-Prettier runs
+Prettier runs.
 
-ESLint runs
+ESLint runs.
 
 Tests run
 
 Commit fails if any step fails
 
-c. **Create Dockerfile**
+### 4. Set up GitHub Actions
+**Step 1**
+
+Create this file: /.github/workflows/ci.yml
+```
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test -- --run
+
+      - name: Build app
+        run: npm run build
+```
+**Step 2**
+
+Commit and push it
+```
+git add .github/workflows/ci.yml
+git commit -m "Add GitHub Actions CI workflow"
+git push
+```
+**Step 3**
+
+Open GitHub repo -> Actions tab -> confirm the workflow passes.
+
+That gives you a solid CI pipeline: every push and pull request will lint, test, and build the app automatically.
+
+### 5. Create a Dockerfile for localhost:8018
+a. **Create Dockerfile**
 
 From project root, create a new file '**Dockerfile**' (no file extension) in the app root folder
 
@@ -158,18 +215,23 @@ In general, the Dockerfile performs the following tasks:
 
 ```
 **Stage 1**
-Uses Node.js 20 (Alpine) as the build environment.
-Sets /app as the working directory inside the container.
-Copies dependency files and installs packages using npm ci for a clean, reproducible install.
-Copies the full project source code into the container.
-Runs npm run build-storybook to generate a static production build in the storybook-static folder.
+Uses a lightweight Node.js image (node:20-alpine)
+Sets a working directory inside the container
+Copies package.json and package-lock.json
+Runs npm ci to install dependencies cleanly
+Copies the rest of the project files
+Runs npm run build to generate a production-ready build (usually into a /dist folder)
+
+Goal: Compile your app into static files (HTML, CSS, JS)
 
 **Second stage (Production Server)**
-Uses a lightweight Nginx (Alpine) image to serve static files.
-Copies the built storybook-static files into /nguyen_roline_ui_garden inside the container.
-Uses a custom nginx.conf to configure the server.
-Exposes port 80 for access from the host machine.
-Automatically starts the Nginx server when the container runs.
+Uses a lightweight Nginx image (nginx:alpine)
+Deletes the default Nginx website files
+Copies the built app (/dist) from the builder stage into Nginx’s web directory
+Exposes port 80 (standard HTTP port)
+Starts Nginx in the foreground
+
+Goal: Serve the built static files efficiently using Nginx
 ```
 
 b. **Create Docker Image**
@@ -177,7 +239,7 @@ b. **Create Docker Image**
 In VS Studio Code -> Terminal, from root folder, type the following command to create docker image:
 
 ```
-docker build -t nguyen_roline_coding_assignment12 .
+docker build -t nguyen_roline_coding_assignment13 .
 ```
 
 Type the following command to confirm the image has been created
@@ -191,7 +253,7 @@ c. **Create Docker Container**
 Type the following command to create docker container
 
 ```
-docker run -p 8083:80 --name nguyen_roline_coding_assignment12 nguyen_roline_coding_assignment12
+docker run -p 8018:80 --name nguyen_roline_coding_assignment13 nguyen_roline_coding_assignment13
 ```
 
 Type the following command to verify docker container is running
@@ -205,20 +267,13 @@ d. **Confirm the app runs successfully using Docker**
 Go to browser, type the following URL to verify that the app can be run
 
 ```
-http://localhost:8083/
+http://localhost:8081/
 ```
-
-In VS Studio Code -> Terminal, type the following command to verify that all site files are copied into /nguyen_roline_ui_garden
-
-```
-docker exec -it nguyen_roline_coding_assignment12 ls -la /nguyen_roline_ui_garden
-```
-
-Expectation: We should see index.html, iframe.html, folder "assets", etc.
 
 e. **Commit and push changes to Git**
 
 ```
+npm run format
 git add .
 git commit -m "Add Dockerfile and necessary files to create Docker container"
 git push
@@ -227,6 +282,6 @@ git push
 **Notes**: Commands to start/stop container manually if needed
 
 ```
-docker start nguyen_roline_coding_assignment12
-docker stop nguyen_roline_coding_assignment12
+docker start nguyen_roline_coding_assignment13
+docker stop nguyen_roline_coding_assignment13
 ```
